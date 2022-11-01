@@ -5,6 +5,12 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Houseseekers.API", "Houseseekers.API\Houseseekers.API.csproj", "{85F8BBBA-8403-4A67-BDEA-B412DFBEE1DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Houseseekers.Models", "Houseseekers.Models\Houseseekers.Models.csproj", "{95A6974C-63BF-4F25-BAD6-92C577CA83CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Houseseekers.Utilty", "Houseseekers.Utilty\Houseseekers.Utilty.csproj", "{4BD60CC3-03EB-4158-B45D-4F71AE466D39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Houseseeker.DataAccess", "Houseseeker.DataAccess\Houseseeker.DataAccess.csproj", "{E8AFAE71-613D-4A86-A3D0-1AB7067A68C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{85F8BBBA-8403-4A67-BDEA-B412DFBEE1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85F8BBBA-8403-4A67-BDEA-B412DFBEE1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85F8BBBA-8403-4A67-BDEA-B412DFBEE1DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95A6974C-63BF-4F25-BAD6-92C577CA83CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95A6974C-63BF-4F25-BAD6-92C577CA83CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95A6974C-63BF-4F25-BAD6-92C577CA83CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95A6974C-63BF-4F25-BAD6-92C577CA83CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BD60CC3-03EB-4158-B45D-4F71AE466D39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BD60CC3-03EB-4158-B45D-4F71AE466D39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BD60CC3-03EB-4158-B45D-4F71AE466D39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BD60CC3-03EB-4158-B45D-4F71AE466D39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8AFAE71-613D-4A86-A3D0-1AB7067A68C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8AFAE71-613D-4A86-A3D0-1AB7067A68C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8AFAE71-613D-4A86-A3D0-1AB7067A68C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8AFAE71-613D-4A86-A3D0-1AB7067A68C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
