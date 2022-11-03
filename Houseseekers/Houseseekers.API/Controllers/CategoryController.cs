@@ -1,3 +1,4 @@
+using AutoMapper;
 using Houseseeker.DataAccess.Data;
 using Houseseeker.DataAccess.Repository.IRepository;
 using Houseseekers.Models;
@@ -10,12 +11,14 @@ namespace Houseseekers.API.Controllers
     public class CategoryController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper mapper;
         private readonly ILogger<CategoryController> _logger;
 
-        public CategoryController(ILogger<CategoryController> logger, IUnitOfWork unitOfWork)
+        public CategoryController(ILogger<CategoryController> logger, IUnitOfWork unitOfWork, IMapper mapper)
         {
             _logger = logger;
             _unitOfWork = unitOfWork;
+            this.mapper = mapper;
         }
 
         /// <summary>
@@ -25,7 +28,9 @@ namespace Houseseekers.API.Controllers
         [HttpGet(Name = "GetCategories")]
         public IActionResult Get()
         {
-            return Ok(_unitOfWork.Category.GetAll());
+            var getAllCategory = _unitOfWork.Category.GetAll();
+            var allCategoryDTos = mapper.Map<List<Models.DTOs.CategoryDTO>>(getAllCategory);
+            return Ok(allCategoryDTos);
         }
 
         /// <summary>
@@ -34,11 +39,12 @@ namespace Houseseekers.API.Controllers
         /// <param>object of category</param>
         /// <returns></returns>
         [HttpPost(Name = "AddCategory")]
-        public IActionResult Post(Category obj)
+        public IActionResult Post(Models.DTOs.CategoryDTO obj)
         {
             try
             {
-                _unitOfWork.Category.Add(obj);
+                var addedCategory = mapper.Map<Models.Category>(obj);
+                _unitOfWork.Category.Add(addedCategory);
                 _unitOfWork.Save();
             }
             catch (Exception)
@@ -54,20 +60,15 @@ namespace Houseseekers.API.Controllers
         /// <param>object of category</param>
         /// <returns></returns>
         [HttpPut(Name = "UpdateCategory")]
-        public IActionResult Put(Category obj)
+        public IActionResult Put(Models.DTOs.CategoryDTO obj)
         {
             try
             {
-                //var updatableResource = _db.GetFirstOrDefault(x => x.Id == id);
-                //if (updatableResource != null)
-                //{
-                _unitOfWork.Category.Update(obj);
+                var updatedCategory = mapper.Map<Models.Category>(obj);
+                _unitOfWork.Category.Update(updatedCategory);
                 _unitOfWork.Save();
-                //}
-                //else
-                //    return NotFound();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -80,7 +81,8 @@ namespace Houseseekers.API.Controllers
         /// <param>id of category</param>
         /// <returns></returns>
         [HttpDelete(Name = "DeleteCategory")]
-        public IActionResult Delete(int? id)
+        [Route("{id:int}")]
+        public IActionResult Delete([FromRoute] int id)
         {
             try
             {
@@ -93,7 +95,7 @@ namespace Houseseekers.API.Controllers
                 else
                     return NotFound();
             }
-            catch (Exception ex)
+            catch (Exception)
             { 
                 throw;
             }
